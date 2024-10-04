@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(11, 6, 6, 0.7), rgba(7, 4, 4, 0.7)), url('../IMAGES/Home-page.jpg');
+    background-image: linear-gradient(rgba(11, 6, 6, 0.7), rgba(7, 4, 4, 0.7)), url('Home-page.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
