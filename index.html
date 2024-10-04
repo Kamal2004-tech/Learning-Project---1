@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENTOR-X | Your Roadmap Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left-part">
+                <span class="logo">MENTOR-X</span>
+            </div>
+
+            <div class="mid-part" id="nav-links">
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Signup</a></li>
+                    <li><a href="about.html">Developers</a></li>
+                </ul>
+            </div>
+            <div class="right-part">
+                <a href="#" class="profile-icon" id="profile-icon">
+                    <img src="Profile-pic.png" alt="Profile-Picture" class="prof">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h1>Your Roadmap Assistant</h1>
+            <div class="quotations-box">
+                <div class="quote-controls">
+                    <button class="quote-button" id="prev-quote">&larr;</button>
+                    <p id="quote"></p>
+                    <button class="quote-button" id="next-quote">&rarr;</button>
+                </div>
+            </div>
+
+            <a href="main.html">
+                <button type="button" class="cta-button">Get Started &rarr;</button>
+            </a>
+        </section>
+    </main>
+
+    <aside id="profile-settings" class="profile-settings">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <h2>Profile Settings</h2>
+        <ul>
+            <li><a href="view.html">View Profil
+            <li><a href="contact.html">Contact Us</a></li>
+            <hr>
+            <li><a href="about.html">Developers</a></li>
+            <hr>
+            <li><a href="comingsoon.html">Community</a></li>
+            <hr>
+            <li><a href="comingsoon.html">Support</a></li>
+            <hr>
+            <li><a href="comingsoon.html">Log Out</a></li>
+        </ul>
+    </aside>
+
+    <script>
+        const quotes = [
+            "“Don’t wait for the opportunity. Create it.” — George Bernard Shaw",
+            "“Success is not final, failure is not fatal: It is the courage to continue that counts.” — Winston Churchill",
+            "“The only way to do great work is to love what you do.” — Steve Jobs",
+            "“Believe you can and you're halfway there.” — Theodore Roosevelt",
+            "“The best way to predict the future is to invent it.” — Alan Kay",
+            "“Life is what happens when you're busy making other plans.” — John Lennon",
+            "“In the end, we only regret the chances we didn’t take.” — Lewis Carroll",
+            "“The only limit to our realization of tomorrow is our doubts of today.” — Franklin D. Roosevelt",
+            "“Act as if what you do makes a difference. It does.” — William James",
+            "“Success usually comes to those who are too busy to be looking for it.” — Henry David Thoreau"
+        ];
+
+        let currentQuoteIndex = 0;
+        const quoteElement = document.getElementById('quote');
+        const prevQuoteBtn = document.getElementById('prev-quote');
+        const nextQuoteBtn = document.getElementById('next-quote');
+
+        // Initialize the quote display
+        function updateQuote() {
+            quoteElement.innerHTML = `${quotes[currentQuoteIndex]}`;
+
+        }
+
+        // Event listeners for buttons
+        prevQuoteBtn.addEventListener('click', () => {
+            currentQuoteIndex = (currentQuoteIndex - 1 + quotes.length) % quotes.length;
+            updateQuote();
+        });
+
+        nextQuoteBtn.addEventListener('click', () => {
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+            updateQuote();
+        });
+
+        // Display the initial quote
+        updateQuote();
+        const profileSettings = document.getElementById('profile-settings');
+        const closeBtn = document.getElementById('close-btn');
+        const profileIcon = document.getElementById('profile-icon');
+
+        // Toggle profile settings on profile icon click
+        profileIcon.addEventListener('click', () => {
+            profileSettings.classList.toggle('active');
+        });
+
+        // Close profile settings when the close button is clicked
+        closeBtn.addEventListener('click', () => {
+            profileSettings.classList.remove('active');
+        });
+
+        // Close profile settings when clicking outside of it
+        window.addEventListener('click', (event) => {
+            if (!profileSettings.contains(event.target) && !profileIcon.contains(event.target)) {
+                profileSettings.classList.remove('active');
+            }
+        });
+
+    </script>
+</body>
+
+</html>

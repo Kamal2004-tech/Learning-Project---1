@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .typing-container {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .typing {
+            font-size: 20px;
+            color: #fff;
+            border-right: 3px solid #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            width: 0;
+            animation: typing 3.5s steps(45, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #fff;
+            }
+        }
+
+        /* Button Style */
+        .notify-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 4s;
+            /* Delay to ensure the button appears after the typing finishes */
+            pointer-events: none;
+            /* Disable clicking before animation */
+        }
+
+        .notify-btn:hover {
+            background-color: #ffffff;
+            color: #1e3c72;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                pointer-events: auto;
+                /* Enable clicking after appearing */
+            }
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .typing {
+                font-size: 18px;
+            }
+
+            .notify-btn {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .typing {
+                font-size: 16px;
+            }
+
+            .notify-btn {
+                font-size: 14px;
+                padding: 8px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Coming Soon</h1>
+        <div class="typing-container">
+            <p class="typing"></p>
+        </div>
+        <a href="#" class="notify-btn">Notify Me</a>
+    </div>
+
+    <footer>
+        © 2024 MENTOR-X . All rights reserved.
+    </footer>
+
+    <script>
+        const text = "Your patience is appreciated as we create something amazing!";
+        let index = 0;
+
+        function typeText() {
+            const typingElement = document.querySelector('.typing');
+            if (index < text.length) {
+                typingElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeText, 80); // Adjust typing speed here
+            }
+        }
+
+        window.onload = typeText;
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url(sign.jpg);
+            background-position: center;
+            background-size: cover;
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            max-width: 500px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            /* Sharper shadow without blur on content */
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+            font-family: inherit;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95em;
+        }
+
+        input:focus {
+            box-shadow: 0 4px 12px rgba(16, 163, 127, 0.6);
+            border: 2px solid rgba(16, 163, 127, 0.6);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-image: linear-gradient(to right, #10a37f, #1db99e);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: background-image 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            background-image: linear-gradient(to right, #1db99e, #10a37f);
+            box-shadow: 0 4px 12px rgba(16, 163, 127, 0.6);
+        }
+
+        p {
+            color: #f2f2f2;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+
+        a.signup {
+            color: #1db99e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a.signup:hover {
+            color: #10a37f;
+        }
+
+        .or-separator {
+            margin: 20px 0;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .or-separator::before,
+        .or-separator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .or-separator::before {
+            left: 0;
+        }
+
+        .or-separator::after {
+            right: 0;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-button {
+            width: 100%;
+            padding: 14px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Create an account</h1>
+        <input type="text" placeholder="NAME*">
+        <input type="email" placeholder="EMAIL ADDRESS*">
+        <input type="password" placeholder="CREATE A PASSWORD*">
+        <input type="password" placeholder="CONFIRM PASSWORD*">
+        <button>Continue</button>
+        <p>Already have an account? <a href="login.html" class="signup">Login</a></p>
+        <div class="or-separator">OR</div>
+        <div class="social-buttons">
+            <button class="social-button">
+                <img class="social-icon" src="google.png" alt="Google">
+                Continue with Google
+            </button>
+            <button class="social-button">
+                <img class="social-icon" src="microsoft.png" alt="Microsoft">
+                Continue with Microsoft Account
+            </button>
+            <button class="social-button">
+                <img class="social-icon" src="apple.png" alt="Apple">
+                Continue with Apple
+            </button>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-image: linear-gradient(rgba(11, 6, 6, 0.7), rgba(7, 4, 4, 0.7)), url('../IMAGES/Home-page.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #FFF;
+}
+
+/* Navbar Styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: transparent;
+    position: relative;
+}
+
+.left-part {
+    font-family: 'Merriweather', serif;
+    font-weight: 900;
+    font-size: 45px;
+    color: #D70E0E;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.left-part:hover {
+    transform: scale(1.1);
+}
+
+.mid-part ul {
+    list-style: none;
+    display: flex;
+}
+
+.mid-part ul li {
+    margin: 0 30px;
+}
+
+.mid-part ul li a {
+    color: #D70E0E;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.mid-part ul li a:hover {
+    color: #fff;
+}
+
+.mid-part ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #D70E0E;
+    left: 0;
+    bottom: -10px;
+    transition: width 0.3s ease;
+}
+
+.mid-part ul li a:hover::after {
+    width: 100%;
+}
+
+.right-part img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #D70E0E;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.right-part img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(215, 14, 14, 0.7);
+}
+
+/* Main Section */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFF;
+    flex-grow: 1;
+}
+
+main h1 {
+    color: #D70E0E;
+    font-size: 64px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+
+main button {
+   font-family: "Roboto Mono", monospace;
+    font-style: italic;
+    font-weight: bold;
+    background: transparent;
+    border: 2px solid #D70E0E;
+    padding: 15px 30px;
+    border-radius: 30px;
+    color: #FFF;
+    font-size: 1.2em;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+main button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(215, 14, 14, 0.8);
+    transition: width 0.4s ease;
+    z-index: -1;
+}
+
+main button:hover::before {
+    width: 100%;
+}
+
+main button:hover {
+    border-color: transparent;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #D70E0E;
+}
+
+/* Profile Settings */
+.profile-settings {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    width: 350px;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(215, 14, 14, 0.5);
+    transition: all 0.4s ease;
+}
+
+.profile-settings.active {
+    display: block;
+}
+
+.profile-settings ul {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-settings ul li {
+    margin: 15px 0;
+}
+
+.profile-settings ul li a {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.profile-settings ul li a:hover {
+    color: #D70E0E;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: #FFF;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+
+@media (max-width: 830px){
+    .left-part {
+     display: none;
+    }
+    .right-part{
+        padding: 20px;
+    }
+  
+}
+
+
+.quotations-box {
+    background: transparent; /* Semi-transparent black background for a premium feel */
+    border-radius: 15px;
+    padding: 15px; /* Reduced padding to lower height */
+    text-align: center;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3); /* Softer, larger shadow for depth */
+    margin: 20px auto;
+    max-width: 750px;
+    backdrop-filter: blur(15px); /* Increased blur effect for elegance */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border for additional depth */
+    color: #fff; /* White text for contrast */
+}
+
+.quote-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between buttons and quote */
+}
+
+.quote-button {
+    background: none;
+    border: none;
+    font-size: 2rem; /* Larger size for better visibility */
+    cursor: pointer;
+    padding: 10px; /* Reduced padding for a more compact button */
+    color: #fff; /* White color for buttons */
+    transition: transform 0.3s, color 0.3s, background 0.3s; /* Added color transition */
+    border-radius: 50%; /* Rounded buttons */
+    width: 40px; /* Fixed width for uniformity */
+    height: 37px; /* Fixed height for uniformity */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+.quote-button:hover {
+    transform: scale(1); /* Slightly enlarge on hover */
+    color: #0e0e0f; /* Gold color on hover for luxury effect */
+    background: rgba(255, 255, 255, 0.2); /* Light background on hover for visual feedback */
+}
+
+#quote {
+    font-family: 'Roboto Slab', serif; /* Use a serif font for quotes for a classy look */
+    font-size: 1.5rem; /* Larger quote text size */
+    font-weight: 400; /* Normal weight for better readability */
+    color: #fff; /* White color for better contrast */
+    padding: 0 20px; /* Space between arrows and quote */
+    text-align: center; /* Center text */
+    margin: 0; /* Remove any default margin */
+}
+
+/* Add some smooth transitions for the quote appearance */
+.quote-controls p {
+    transition: opacity 0.5s ease-in-out;
+    flex-grow: 1; /* Allows the quote to take up remaining space */
+}
+
+
+/* Media query for small screens (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Adjust the navigation bar */
+    nav {
+      padding: 10px 20px;
+    }
+    .left-part {
+      font-size: 25px;
+    }
+    .right-part img {
+      width: 40px;
+      height: 40px;
+    }
+    .mid-part ul li {
+      margin: 0 15px;
+    }
+    .mid-part ul li a {
+      font-size: 1em;
+    }
+  
+    /* Adjust the main section */
+    main {
+      padding: 20px;
+    }
+    main h1 {
+      font-size: 30px;
+    }
+    .quotations-box {
+      padding: 10px;
+    }
+    .quote-controls {
+      flex-direction: column;
+      align-items: center;
+    }
+    .quote-button {
+      margin: 10px 0;
+    }
+  }
+  
+  /* Media query for extra small screens (max-width: 480px) */
+  @media (max-width: 480px) {
+    /* Adjust the navigation bar */
+    nav {
+      padding: 5px 10px;
+    }
+    .left-part {
+      font-size: 20px;
+    }
+    .right-part img {
+      width: 30px;
+      height: 30px;
+    }
+    .mid-part ul li {
+      margin: 0 10px;
+    }
+    .mid-part ul li a {
+      font-size: 0.9em;
+    }
+  
+    /* Adjust the main section */
+    main {
+      padding: 10px;
+    }
+    main h1 {
+      font-size: 25px;
+    }
+    .quotations-box {
+      padding: 5px;
+    }
+    .quote-controls {
+      flex-direction: column;
+      align-items: center;
+    }
+    .quote-button {
+      margin: 5px 0;
+    }
+  
+    .profile-settings.active{
+    display: block;
+      top: 7%;
+      max-width: 80%;
+  } 
+  }
+  
+  /* Media query for portrait mode on mobile devices (max-width: 320px) */
+  @media (max-width: 320px) {
+    /* Adjust the navigation bar */
+    nav {
+      padding: 5px 5px;
+    }
+    .left-part {
+      font-size: 18px;
+    }
+    .right-part img {
+      width: 25px;
+      height: 25px;
+    }
+    .mid-part ul li {
+      margin: 0 5px;
+    }
+    .mid-part ul li a {
+      font-size: 0.8em;
+    }
+  
+    /* Adjust the main section */
+    main {
+      padding: 5px;
+    }
+    main h1 {
+      font-size: 20px;
+    }
+    .quotations-box {
+      padding: 5px;
+    }
+    .quote-controls {
+      flex-direction: column;
+      align-items: center;
+    }
+    .quote-button {
+      margin: 5px 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+  
+    .nav-links.active {
+      display: block;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .nav-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links li {
+      margin-bottom: 10px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+    }
+    .nav-links a:hover {
+      color: #666;
+    }
+  }
+  
